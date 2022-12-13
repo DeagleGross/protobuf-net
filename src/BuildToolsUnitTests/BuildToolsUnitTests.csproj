@@ -39,6 +39,9 @@
 
     <!-- C# -> CodeGenSet -->
     <None Include="AOT/CSharpToCodeGen/Schemas/**/*.cs" CopyToOutputDirectory="PreserveNewest" />
+
+	<!-- C# -> CodeGenSet using E2E Roslyn -->
+	<None Include="AOT/E2E/Schemas/**/*.cs" CopyToOutputDirectory="PreserveNewest" />
     
     <!-- .proto -> FDS -> CodeGenSet -> C# -> CodeGenSet -->
     <None Update="AOT/Schemas/**/*.proto" CopyToOutputDirectory="PreserveNewest" />
@@ -48,5 +51,9 @@
     <Compile Remove="AOT/Schemas/**/*.cs" />
     <None Include="AOT/Schemas/**/*.cs" CopyToOutputDirectory="PreserveNewest" DependentUpon="%(Filename).proto" />
     <!--<Compile Include="AOT\Schemas\Everything.cs" />-->
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="AOT\E2E\Schemas\Basic.input.cs" />
   </ItemGroup>
 </Project>
